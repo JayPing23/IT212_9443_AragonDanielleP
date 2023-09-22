@@ -3,6 +3,8 @@
  * Date: September 20, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
  */
+package prelim.LinkedList;
+import prelim.Util.*;
 import java.util.NoSuchElementException;
 
 /**
@@ -15,7 +17,7 @@ public class SinglyLinkedCircularList<T> implements MyList<T> {
     private int size;
 
     /**
-     * Creates a new instance of the SinglyLinkedCircularList.
+     * Creates a new instance of the prelim.LinkedList.SinglyLinkedCircularList.
      */
     public SinglyLinkedCircularList() {
         head = null;
@@ -175,6 +177,26 @@ public class SinglyLinkedCircularList<T> implements MyList<T> {
     }
 
     /**
+     * Gets an element from the list based on its index.
+     *
+     * @param index The index of the element to retrieve.
+     * @return The element at the specified index.
+     * @throws IndexOutOfBoundsException if the index is out of bounds.
+     */
+    public T getAtIndex(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= getSize()) {
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
+
+        LinkedNode<T> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.getNext();
+        }
+
+        return current.getData();
+    }
+
+    /**
      * Returns a string representation of the list.
      *
      * @return A string representing the elements of the list.
@@ -195,5 +217,15 @@ public class SinglyLinkedCircularList<T> implements MyList<T> {
             }
         }
         return string.toString();
+    }
+
+    @Override
+    public boolean contains(T data) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(T data) {
+        return false;
     }
 }

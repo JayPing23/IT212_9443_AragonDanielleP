@@ -3,6 +3,11 @@
  * Date: September 20, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
  */
+package prelim.LinkedList;
+import prelim.Util.LinkedNode;
+import prelim.Util.ListOverflowException;
+import prelim.Util.MyList;
+
 import java.util.NoSuchElementException;
 
 /**
@@ -15,7 +20,7 @@ public class DoublyLinkedCircularList<T> implements MyList<T> {
     private int size;
 
     /**
-     * Creates a new instance of the DoublyLinkedCircularList.
+     * Creates a new instance of the prelim.prelim.LinkedList.LinkedList.DoublyLinkedCircularList.
      */
     public DoublyLinkedCircularList() {
         head = null;
@@ -185,6 +190,27 @@ public class DoublyLinkedCircularList<T> implements MyList<T> {
     }
 
     /**
+     * Gets an element from the list based on its index.
+     *
+     * @param index The index of the element to retrieve.
+     * @return The element at the specified index.
+     * @throws IndexOutOfBoundsException if the index is out of bounds.
+     */
+    public T getAtIndex(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= getSize()) {
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
+
+        LinkedNode<T> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.getNext();
+        }
+
+        return current.getData();
+    }
+
+
+    /**
      * Returns a string representation of the list.
      *
      * @return A string representing the elements of the list.
@@ -200,5 +226,15 @@ public class DoublyLinkedCircularList<T> implements MyList<T> {
             } while (current != head);
         }
         return string.toString();
+    }
+
+    @Override
+    public boolean contains(T data) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(T data) {
+        return false;
     }
 }

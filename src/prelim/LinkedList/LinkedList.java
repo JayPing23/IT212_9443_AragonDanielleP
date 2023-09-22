@@ -3,6 +3,9 @@
  * Date: September 20, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
  */
+package prelim.LinkedList;
+import prelim.Util.*;
+
 import java.util.NoSuchElementException;
 
 /**
@@ -10,14 +13,14 @@ import java.util.NoSuchElementException;
  *
  * @param <T> The type of elements stored in the list.
  */
-public class SinglyLinkedList<T> implements MyList<T> {
+public class LinkedList<T> implements MyList<T> {
     private LinkedNode<T> head;
     private int currentIndex; // Added index variable
 
     /**
-     * Creates a new instance of SinglyLinkedList.
+     * Creates a new instance of prelim.LinkedList.LinkedList.
      */
-    public SinglyLinkedList() {
+    public LinkedList() {
         head = null;
         currentIndex = -1; // Initialize index to -1
     }
@@ -91,28 +94,6 @@ public class SinglyLinkedList<T> implements MyList<T> {
     }
 
     /**
-     * Searches for an element in the list based on its data.
-     *
-     * @param data The data to search for.
-     * @return The index of the element in the list, or -1 if not found.
-     */
-    @Override
-    public int search(T data) {
-        LinkedNode<T> current = head;
-        int index = 0;
-
-        while (current != null) {
-            if (current.getData().equals(data)) {
-                return index;
-            }
-            current = current.getNext();
-            index++;
-        }
-
-        return -1; // Element not found
-    }
-
-    /**
      * Checks if the list is empty.
      *
      * @return true if the list is empty, false otherwise.
@@ -167,6 +148,28 @@ public class SinglyLinkedList<T> implements MyList<T> {
     }
 
     /**
+     * Searches for an element in the list based on its data.
+     *
+     * @param data The data to search for.
+     * @return The index of the element in the list, or -1 if not found.
+     */
+    @Override
+    public int search(T data) {
+        LinkedNode<T> current = head;
+        int index = 0;
+
+        while (current != null) {
+            if (current.getData().equals(data)) {
+                return index;
+            }
+            current = current.getNext();
+            index++;
+        }
+
+        return -1; // Element not found
+    }
+
+    /**
      * Generates a string representation of the list.
      *
      * @return A string representing the elements in the list.
@@ -185,5 +188,15 @@ public class SinglyLinkedList<T> implements MyList<T> {
             index++; // Increment index
         }
         return string.toString();
+    }
+
+    @Override
+    public boolean contains(T data) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(T data) {
+        return false;
     }
 }

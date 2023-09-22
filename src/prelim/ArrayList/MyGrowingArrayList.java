@@ -1,8 +1,13 @@
-/**
+ /**
  * Name: Aragon, Danielle John P.
  * Date: September 20, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
  */
+
+ package prelim.ArrayList;
+
+import prelim.Util.MyList;
+import prelim.Util.LinkedNode;
 import java.util.NoSuchElementException;
 
 public class MyGrowingArrayList<E> implements MyList<E> {
@@ -80,6 +85,23 @@ public class MyGrowingArrayList<E> implements MyList<E> {
             string.append(array[i].getData().toString());
         }
         return string.toString();
+    }
+
+    @Override
+    public boolean contains(E data) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(E data) {
+        return false;
+    }
+
+    public E getAtIndex(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
+        return array[index].getData();
     }
 
     private void resizeArray() {

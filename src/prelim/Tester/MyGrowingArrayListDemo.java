@@ -1,10 +1,15 @@
-/**
+package prelim.Tester; /**
  * Name: Aragon, Danielle John P.
  * Date: September 22, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
  */
-import java.util.Scanner;
+
+import prelim.Util.ListOverflowException;
+import prelim.Util.MyList;
+import prelim.ArrayList.MyGrowingArrayList;
+
 import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 public class MyGrowingArrayListDemo {
     public static void main(String[] args) throws ListOverflowException {

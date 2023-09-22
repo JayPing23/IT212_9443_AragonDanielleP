@@ -3,6 +3,8 @@
  * Date: September 09, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
  */
+
+package prelim.Util;
 import java.util.NoSuchElementException;
 
 public interface MyList<E> {
@@ -13,5 +15,10 @@ public interface MyList<E> {
     String delete(E data);
     int search(E data);
     String toString();
+
+    // Additional methods for school management
+    boolean contains(E data);
+    boolean remove(E data);
+
 }
 

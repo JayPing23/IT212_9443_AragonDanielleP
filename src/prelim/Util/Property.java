@@ -1,3 +1,5 @@
+package prelim.Util;
+
 /**
  * Name: Aragon, Danielle John P.
  * Date: September 20, 2023
@@ -9,7 +11,7 @@ public class Property {
     private String status;
 
     /**
-     * Constructor to initialize a Property object with details.
+     * Constructor to initialize a prelim.Util.Property object with details.
      *
      * @param details A string containing property details in the format: model, color, status.
      * @throws IllegalArgumentException If the input format is invalid.
@@ -26,7 +28,7 @@ public class Property {
     }
 
     /**
-     * Returns a string representation of the Property.
+     * Returns a string representation of the prelim.Util.Property.
      */
     @Override
     public String toString() {

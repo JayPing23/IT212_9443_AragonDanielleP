@@ -3,6 +3,9 @@
  * Date: September 21, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
  */
+package prelim.LinkedList;
+import prelim.Util.*;
+
 import java.util.NoSuchElementException;
 
 /**
@@ -15,7 +18,7 @@ public class DoublyLinkedList<T> implements MyList<T> {
     private LinkedNode<T> tail;
 
     /**
-     * Creates a new instance of DoublyLinkedList.
+     * Creates a new instance of prelim.prelim.LinkedList.LinkedList.DoublyLinkedList.
      */
     public DoublyLinkedList() {
         head = null;
@@ -186,6 +189,27 @@ public class DoublyLinkedList<T> implements MyList<T> {
     }
 
     /**
+     * Gets an element from the list based on its index.
+     *
+     * @param index The index of the element to retrieve.
+     * @return The element at the specified index.
+     * @throws IndexOutOfBoundsException if the index is out of bounds.
+     */
+    public T getAtIndex(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= getSize()) {
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
+
+        LinkedNode<T> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.getNext();
+        }
+
+        return current.getData();
+    }
+
+
+    /**
      * Generates a string representation of the list.
      *
      * @return A string representing the elements in the list.
@@ -204,5 +228,15 @@ public class DoublyLinkedList<T> implements MyList<T> {
         }
 
         return string.toString();
+    }
+
+    @Override
+    public boolean contains(T data) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(T data) {
+        return false;
     }
 }

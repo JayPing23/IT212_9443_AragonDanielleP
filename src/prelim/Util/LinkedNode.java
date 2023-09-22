@@ -17,7 +17,7 @@
  * 5. Implement a public setter method setNext(next)
  *      in the LinkedListNodeAragonDanielle class to set the next node.
  */
-
+package prelim.Util;
 public class LinkedNode<T> {
     private T data;
     private LinkedNode<T> next;

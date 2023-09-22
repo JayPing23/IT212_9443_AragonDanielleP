@@ -35,8 +35,9 @@
  * 6. Error handling is implemented for user input, ensuring that the user provides valid choices and input
  *    for product selection and quantity.
  * 7. The Utils class is used for formatting currency values.
- *
- *
+ * @author: Aragon, Danielle John P.
+ * Date: September 22, 2023
+ * 9443-IT212/IT212L-SAMCIS-CIS
  */
 package prelim.Tester;
 

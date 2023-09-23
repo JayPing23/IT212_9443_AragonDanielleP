@@ -2,6 +2,48 @@
  * Name: Aragon, Danielle John P.
  * Date: September 22, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
+  *
+  * Algorithm: MyFixedSizeArrayListDemo
+  * Initialization
+  *
+  * Create a class named MyFixedSizeArrayListDemo.
+  * Main Method
+  *
+  * Define a main method inside the MyFixedSizeArrayListDemo class with the following steps:
+  * Create a Scanner object named scanner to read user input.
+  * Declare a variable propertyList of type MyList<Property> and initialize it with a new instance of MyFixedSizeArrayList.
+  * Declare an integer variable choice and initialize it to 0.
+  * Start a do-while loop with the condition (choice != 3) to repeatedly display the Property Management Menu and process user input:
+  * Display the Property Management Menu with options to add a Property, view the Property List, and exit.
+  * Prompt the user to enter their choice.
+  * Read the user's choice into the choice variable.
+  * Consume the newline character.
+  * Use a switch statement to perform the following actions based on choice:
+  * Case 1:
+  * Call the readPropertyDetails method to read property details from the user's input.
+  * Create a new Property object from the input details.
+  * Try to insert the Property object into the propertyList using the insert method.
+  * Handle a ListOverflowException if thrown, displaying "Error: {exception message}."
+  * Display "Property added."
+  * Case 2:
+  * Display "Property List:"
+  * Display the contents of propertyList using the toString method.
+  * Case 3:
+  * Display "Exiting the Property Management App."
+  * Default:
+  * Display "Invalid choice. Please try again."
+  * Catch exceptions:
+  * If a ListOverflowException is thrown, display "Error: {exception message}."
+  * If a NoSuchElementException is thrown, display "Error: {exception message}."
+  * If any other unexpected exception occurs, display "An unexpected error occurred: {exception message}."
+  * readPropertyDetails Method
+  *
+  * Define a private method named readPropertyDetails that takes a Scanner object scanner as a parameter.
+  * Inside the method, prompt the user to enter property details (e.g., model, color, status).
+  * Read the user's input into a propertyDetails variable.
+  * Create a new Property object from the propertyDetails.
+  * Return the Property object.
+  *
  */
  package prelim.Tester;
 

@@ -2,6 +2,109 @@
  * Name: Aragon, Danielle John P.
  * Date: September 20, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
+ *
+ * Algorithm: DoublyLinkedCircularList
+ *
+ * Initialization
+ *
+ * Create a class named DoublyLinkedCircularList with a type parameter T.
+ * Declare an instance variable head of type LinkedNode<T> to represent the head of the circular doubly linked list.
+ * Declare an integer variable size to keep track of the number of elements in the list.
+ * Constructor
+ *
+ * Create a constructor for DoublyLinkedCircularList with no parameters.
+ * Inside the constructor:
+ * Initialize the head to null since the list is initially empty.
+ * Set size to 0 to indicate an empty list.
+ * isEmpty
+ *
+ * Define a method isEmpty that takes no parameters and returns a boolean.
+ * This method should return true if the list is empty (head is null), otherwise, return false.
+ * insert
+ *
+ * Define a method insert that takes an element of type T as a parameter.
+ * Call the addAtHead method to insert the element at the head of the list.
+ * getElement
+ *
+ * Define a method getElement that takes an element of type T as a parameter and throws a NoSuchElementException.
+ * Initialize a current variable to head.
+ * Use a do-while loop to iterate through the list:
+ * If the data of the current node equals the given data, return the data.
+ * Move to the next node by updating current to the next node.
+ * Repeat the loop until current becomes equal to head.
+ * If the element is not found, throw a NoSuchElementException.
+ * delete
+ *
+ * Define a method delete that takes an element of type T as a parameter and returns a string.
+ * Initialize a current variable to head.
+ * Use a do-while loop to iterate through the list:
+ * If the data of the current node equals the given data, do the following:
+ * Store the data of the current node in deletedData.
+ * If the current node is the head, call deleteFromHead to remove it.
+ * Otherwise, adjust the pointers of the previous and next nodes to bypass the current node.
+ * Decrement the size.
+ * Return a message indicating the deletion.
+ * Move to the next node by updating current to the next node.
+ * Repeat the loop until current becomes equal to head.
+ * If the element is not found, return a message indicating that the element was not found.
+ * search
+ *
+ * Define a method search that takes an element of type T as a parameter and returns an integer.
+ * Initialize a current variable to head.
+ * Initialize an index variable to 0.
+ * Use a do-while loop to iterate through the list:
+ * If the data of the current node equals the given data, return the index.
+ * Move to the next node by updating current to the next node and increment index.
+ * Repeat the loop until current becomes equal to head.
+ * If the element is not found, return -1.
+ * addAtHead
+ *
+ * Define a method addAtHead that takes an element of type T as a parameter.
+ * Create a new LinkedNode with the given data.
+ * If the list is empty, set the next and previous references of the new node to itself.
+ * Otherwise, adjust the pointers of the new node, the current head, and the previous tail to insert the new node at the head.
+ * Increment the size.
+ * addAtTail
+ *
+ * Define a method addAtTail that takes an element of type T as a parameter.
+ * Create a new LinkedNode with the given data.
+ * If the list is empty, set the next and previous references of the new node to itself.
+ * Otherwise, adjust the pointers of the new node, the current head, and the previous tail to insert the new node at the tail.
+ * Increment the size.
+ * deleteFromHead
+ *
+ * Define a method deleteFromHead that deletes the element from the head of the list.
+ * If the list is empty, throw a NoSuchElementException.
+ * If the head is the only node in the list, set head to null.
+ * Otherwise, adjust the pointers of the new head, the previous tail, and the current head to remove the old head.
+ * Decrement the size.
+ * Return the data of the deleted element.
+ * getSize
+ *
+ * Define a method getSize that takes no parameters and returns an integer.
+ * This method should return the current size of the list, which is stored in the size variable.
+ * getAtIndex
+ *
+ * Define a method getAtIndex that takes an integer index as a parameter and throws an IndexOutOfBoundsException.
+ * Check if the index is valid (within the range [0, size)).
+ * Initialize a current variable to head.
+ * Use a loop to traverse the list to the node at the specified index.
+ * Return the data of the node at the specified index.
+ * If the index is out of bounds, throw an IndexOutOfBoundsException.
+ * toString
+ *
+ * Define a method toString that takes no parameters and returns a string.
+ * Create a StringBuilder to build a string representation of the list.
+ * If the list is not empty, use a do-while loop to iterate through the list, appending data to the StringBuilder with " <-> " as a separator.
+ * Return the resulting string.
+ * contains
+ *
+ * Define a method contains that takes an element of type T as a parameter and returns a boolean.
+ * Currently, this method is not implemented and always returns false.
+ * remove
+ *
+ * Define a method remove that takes an element of type T as a parameter and returns a boolean.
+ * Currently, this method is not implemented and always returns false.
  */
 package prelim.LinkedList;
 import prelim.Util.LinkedNode;

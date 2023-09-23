@@ -2,6 +2,101 @@
  * Name: Aragon, Danielle John P.
  * Date: September 20, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
+ *
+ * Algorithm: LinkedList
+ *
+ * Initialization
+ *
+ * Create a class named LinkedList with a type parameter T.
+ * Declare two instance variables: head of type LinkedNode<T> to represent the head of the singly linked list and currentIndex of type integer to keep track of the current index of the list.
+ * Initialize head to null since the list is initially empty, and currentIndex to -1.
+ * getSize
+ *
+ * Define a method getSize that takes no parameters and returns an integer.
+ * Return the value of currentIndex + 1 to represent the size of the list based on the current index.
+ * insert
+ *
+ * Define a method insert that takes an element of type T as a parameter and throws a ListOverflowException.
+ * Call the addAtTail method to insert the element at the tail of the list since the list is unbounded.
+ * getElement
+ *
+ * Define a method getElement that takes an element of type T as a parameter and throws a NoSuchElementException.
+ * Initialize a current variable to head.
+ * Use a while loop to iterate through the list:
+ * If the data of the current node equals the given data, return the data of the current node.
+ * Move to the next node by updating current to the next node.
+ * Repeat the loop until current becomes null.
+ * If the element is not found, throw a NoSuchElementException.
+ * delete
+ *
+ * Define a method delete that takes an element of type T as a parameter and returns a string.
+ * Initialize a current variable to head and a prev variable to null.
+ * Use a while loop to iterate through the list:
+ * If the data of the current node equals the given data, do the following:
+ * If prev is not null, update the next reference of prev to skip the current node.
+ * Update the currentIndex by decrementing it.
+ * Return a message indicating the deletion of the element.
+ * Update prev to the current node and move to the next node by updating current to the next node.
+ * Repeat the loop until current becomes null.
+ * If the element is not found, return a message indicating that the element was not found.
+ * isEmpty
+ *
+ * Define a method isEmpty that takes no parameters and returns a boolean.
+ * This method should return true if the head is null, indicating that the list is empty, otherwise, return false.
+ * addAtHead
+ *
+ * Define a method addAtHead that takes an element of type T as a parameter.
+ * Create a new LinkedNode with the given data and the current head as the next node.
+ * Update head to the new node.
+ * Increment currentIndex by 1 to reflect the addition at the head.
+ * addAtTail
+ *
+ * Define a method addAtTail that takes an element of type T as a parameter.
+ * Create a new LinkedNode with the given data.
+ * If the list is empty, set head to the new node.
+ * Otherwise, traverse the list to find the current tail node (the node with next as null).
+ * Set the next reference of the current tail node to the new node.
+ * Increment currentIndex by 1 to reflect the addition at the tail.
+ * deleteFromHead
+ *
+ * Define a method deleteFromHead that deletes the head element from the list and returns its data.
+ * If the list is empty (head is null), throw a NoSuchElementException.
+ * Store the data of the current head in a variable data.
+ * Update head to the next node.
+ * Decrement currentIndex by 1 to reflect the deletion from the head.
+ * Return the data of the deleted element.
+ * search
+ *
+ * Define a method search that takes an element of type T as a parameter and returns an integer.
+ * Initialize a current variable to head.
+ * Initialize an index variable to 0.
+ * Use a while loop to iterate through the list:
+ * If the data of the current node equals the given data, return the index.
+ * Move to the next node by updating current to the next node.
+ * Increment index by 1.
+ * Repeat the loop until current becomes null.
+ * If the element is not found, return -1.
+ * toString
+ *
+ * Define a method toString that takes no parameters and returns a string.
+ * Create a StringBuilder to build a string representation of the list.
+ * Initialize a node variable to head.
+ * Initialize an index variable to 0.
+ * Use a while loop to iterate through the list:
+ * If index is greater than 0, append " -> " to the StringBuilder to separate elements.
+ * Append the data of the current node to the StringBuilder.
+ * Move to the next node by updating node to the next node.
+ * Increment index by 1.
+ * Repeat the loop until node becomes null.
+ * Return the resulting string.
+ * contains
+ *
+ * Define a method contains that takes an element of type T as a parameter and returns a boolean.
+ * Currently, this method is not implemented and always returns false.
+ * remove
+ *
+ * Define a method remove that takes an element of type T as a parameter and returns a boolean.
+ * Currently, this method is not implemented and always returns false.
  */
 package prelim.LinkedList;
 import prelim.Util.*;

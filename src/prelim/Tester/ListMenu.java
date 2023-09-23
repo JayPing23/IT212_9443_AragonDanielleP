@@ -2,6 +2,59 @@
  * Name: Aragon, Danielle John P.
  * Date: September 22, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
+ * Algorithm: ListMenu
+ *
+ * Initialization
+ *
+ * Create a class named ListMenu.
+ * Main Method
+ *
+ * Define a main method inside the ListMenu class with the following steps:
+ * Create a Scanner object named scanner to read user input.
+ * Declare a variable list of type MyList<String> and initialize it to null. This variable will hold the selected list.
+ * Declare an integer variable listChoice.
+ * Start a do-while loop with the condition (listChoice != 6) to repeatedly display the list type selection menu and process user input:
+ * Display the list type selection menu with options for various list types (e.g., LinkedList, SinglyLinkedList, etc.).
+ * Prompt the user to enter their choice.
+ * Read the user's choice into the listChoice variable.
+ * Consume the newline character.
+ * Use a switch statement to perform the following actions based on listChoice:
+ * Case 1: Initialize list with a new instance of LinkedList.
+ * Case 2: Initialize list with a new instance of SinglyLinkedList.
+ * Case 3: Initialize list with a new instance of DoublyLinkedList.
+ * Case 4: Initialize list with a new instance of SinglyLinkedCircularList.
+ * Case 5: Initialize list with a new instance of DoublyLinkedCircularList.
+ * Case 6: Display "Exiting the program."
+ * Default: Display "Invalid choice. Please try again."
+ * If list is not null (i.e., a list type is selected), call the operateOnList method with the scanner and list as arguments.
+ * operateOnList Method
+ *
+ * Define a private method named operateOnList that takes a Scanner object scanner and a MyList<String> object list as parameters. This method allows the user to perform operations on the selected list.
+ * Inside the method, declare an integer variable operationChoice.
+ * Start a do-while loop with the condition (operationChoice != 4) to repeatedly display the list operation menu and process user input:
+ * Display the list operation menu with options to add an element, delete an element, show the list, and return to list type selection.
+ * Prompt the user to enter their choice.
+ * Read the user's choice into the operationChoice variable.
+ * Consume the newline character.
+ * Use a switch statement to perform the following actions based on operationChoice:
+ * Case 1:
+ * Prompt the user to enter the element to add.
+ * Read the user's input into a dataToAdd variable.
+ * Try to insert dataToAdd into the list using the insert method.
+ * Handle a ListOverflowException if thrown, displaying "List overflow: {exception message}."
+ * Display "Element added."
+ * Case 2:
+ * Prompt the user to enter the element to delete.
+ * Read the user's input into a dataToDelete variable.
+ * Try to delete dataToDelete from the list using the delete method.
+ * Handle a NoSuchElementException if thrown, displaying "Element not found."
+ * Display "Element '{deleted element}' deleted."
+ * Case 3:
+ * Display "List Contents:" and show the contents of the list using the toString method.
+ * Case 4:
+ * Display "Returning to List Type Selection."
+ * Default: Display "Invalid choice. Please try again."
+ * Continue the loop until the user chooses option 4 to return to list type selection.
  */
 package prelim.Tester;
 

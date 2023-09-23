@@ -2,6 +2,47 @@ package prelim.Tester; /**
  * Name: Aragon, Danielle John P.
  * Date: September 22, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
+ *
+ * Algorithm: MyGrowingArrayListDemo
+ *
+ * Initialization
+ *
+ * Create a class named MyGrowingArrayListDemo.
+ * Main Method
+ *
+ * Define a main method inside the MyGrowingArrayListDemo class with the following steps:
+ * Create a Scanner object named scanner to read user input.
+ * Declare a variable taskList of type MyList<String> and initialize it with a new instance of MyGrowingArrayList.
+ * Declare an integer variable choice and initialize it to 0.
+ * Start a do-while loop with the condition (choice != 4) to repeatedly display the Course Task Manager Menu and process user input:
+ * Display the Course Task Manager Menu with options to add a completed task, view the completed task list, search for a completed task, and exit.
+ * Prompt the user to enter their choice.
+ * Read the user's choice into the choice variable.
+ * Consume the newline character.
+ * Use a switch statement to perform the following actions based on choice:
+ * Case 1:
+ * Call the readTaskDetails method to read task details from the user's input.
+ * Insert the task details into the taskList using the insert method.
+ * Display "Completed Task added."
+ * Case 2:
+ * Display "Completed Task List:"
+ * Display the contents of taskList using the toString method.
+ * Case 3:
+ * Prompt the user to enter task details to search.
+ * Read the user's input into the searchDetails variable.
+ * Try to get the element from taskList based on searchDetails using the getElement method.
+ * If found, display "Found Completed Task: {foundTask}" where {foundTask} is the task found.
+ * If not found, display "Completed Task not found."
+ * Case 4:
+ * Display "Exiting the Course Task Manager."
+ * Default:
+ * Display "Invalid choice. Please try again."
+ * readTaskDetails Method
+ *
+ * Define a private method named readTaskDetails that takes a Scanner object scanner as a parameter.
+ * Inside the method, prompt the user to enter task details (e.g., project name, date assigned, date submitted).
+ * Read the user's input into a taskDetails variable.
+ * Return the taskDetails as a string.
  */
 
 import prelim.Util.ListOverflowException;

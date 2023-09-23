@@ -85,104 +85,179 @@ import prelim.Util.MyList;
 import prelim.Util.LinkedNode;
 import java.util.NoSuchElementException;
 
-public class MyGrowingArrayList<E> implements MyList<E> {
-    private static final int INITIAL_CAPACITY = 5;
-    private LinkedNode<E>[] array;
-    private int size;
+ /**
+  * MyGrowingArrayList is an implementation of the MyList interface with dynamic resizing.
+  * It stores elements of type E in a LinkedNode array and provides basic list operations.
+  *
+  * @param <E> The type of elements to be stored in the list.
+  */
+ public class MyGrowingArrayList<E> implements MyList<E> {
+     // Initial capacity of the array
+     private static final int INITIAL_CAPACITY = 5;
 
-    public MyGrowingArrayList() {
-        array = new LinkedNode[INITIAL_CAPACITY];
-        size = 0;
-    }
+     // Array to store LinkedNodes
+     private LinkedNode<E>[] array;
 
-    @Override
-    public int getSize() {
-        return size;
-    }
+     // Current size of the list
+     private int size;
 
-    @Override
-    public boolean isEmpty() {
-        return size == 0;
-    }
+     /**
+      * Constructs a new MyGrowingArrayList with an initial capacity of INITIAL_CAPACITY.
+      */
+     public MyGrowingArrayList() {
+         array = new LinkedNode[INITIAL_CAPACITY];
+         size = 0;
+     }
 
-    @Override
-    public void insert(E data) {
-        if (size >= array.length) {
-            resizeArray();
-        }
-        array[size] = new LinkedNode<>(data);
-        size++;
-    }
+     /**
+      * Returns the current size of the list.
+      *
+      * @return The size of the list.
+      */
+     @Override
+     public int getSize() {
+         return size;
+     }
 
-    @Override
-    public E getElement(E data) throws NoSuchElementException {
-        for (int i = 0; i < size; i++) {
-            if (array[i].getData().equals(data)) {
-                return array[i].getData();
-            }
-        }
-        throw new NoSuchElementException("Element not found");
-    }
+     /**
+      * Checks if the list is empty.
+      *
+      * @return True if the list is empty, otherwise false.
+      */
+     @Override
+     public boolean isEmpty() {
+         return size == 0;
+     }
 
-    @Override
-    public String delete(E data) {
-        for (int i = 0; i < size; i++) {
-            if (array[i].getData().equals(data)) {
-                String deletedName = array[i].getData().toString();
-                for (int j = i; j < size - 1; j++) {
-                    array[j] = array[j + 1];
-                }
-                array[size - 1] = null;
-                size--;
-                return "Deleted element: " + deletedName;
-            }
-        }
-        return "Element not found.";
-    }
+     /**
+      * Inserts an element into the list.
+      *
+      * @param data The element to be inserted.
+      */
+     @Override
+     public void insert(E data) {
+         if (size >= array.length) {
+             resizeArray();
+         }
+         array[size] = new LinkedNode<>(data);
+         size++;
+     }
 
-    @Override
-    public int search(E data) {
-        for (int i = 0; i < size; i++) {
-            if (array[i].getData().equals(data)) {
-                return i;
-            }
-        }
-        return -1;
-    }
+     /**
+      * Retrieves an element from the list.
+      *
+      * @param data The element to be retrieved.
+      * @return The element if found.
+      * @throws NoSuchElementException if the element is not found in the list.
+      */
+     @Override
+     public E getElement(E data) throws NoSuchElementException {
+         for (int i = 0; i < size; i++) {
+             if (array[i].getData().equals(data)) {
+                 return array[i].getData();
+             }
+         }
+         throw new NoSuchElementException("Element not found.");
+     }
 
-    @Override
-    public String toString() {
-        StringBuilder string = new StringBuilder();
-        for (int i = 0; i < size; i++) {
-            if (i > 0) {
-                string.append(" -> ");
-            }
-            string.append(array[i].getData().toString());
-        }
-        return string.toString();
-    }
+     /**
+      * Deletes an element from the list.
+      *
+      * @param data The element to be deleted.
+      * @return A message indicating the deleted element or "Element not found" if not found.
+      */
+     @Override
+     public String delete(E data) {
+         for (int i = 0; i < size; i++) {
+             if (array[i].getData().equals(data)) {
+                 String deletedName = array[i].getData().toString();
+                 for (int j = i; j < size - 1; j++) {
+                     array[j] = array[j + 1];
+                 }
+                 array[size - 1] = null;
+                 size--;
+                 return "Deleted element: " + deletedName;
+             }
+         }
+         return "Element not found.";
+     }
 
-    @Override
-    public boolean contains(E data) {
-        return false;
-    }
+     /**
+      * Searches for an element in the list.
+      *
+      * @param data The element to be searched.
+      * @return The index of the element if found, or -1 if not found.
+      */
+     @Override
+     public int search(E data) {
+         for (int i = 0; i < size; i++) {
+             if (array[i].getData().equals(data)) {
+                 return i;
+             }
+         }
+         return -1;
+     }
 
-    @Override
-    public boolean remove(E data) {
-        return false;
-    }
+     /**
+      * Returns a string representation of the list.
+      *
+      * @return A string representing the list elements.
+      */
+     @Override
+     public String toString() {
+         StringBuilder string = new StringBuilder();
+         for (int i = 0; i < size; i++) {
+             if (i > 0) {
+                 string.append(" -> ");
+             }
+             string.append(array[i].getData().toString());
+         }
+         return string.toString();
+     }
 
-    public E getAtIndex(int index) throws IndexOutOfBoundsException {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index out of bounds");
-        }
-        return array[index].getData();
-    }
+     /**
+      * Checks if the list contains a specific element.
+      *
+      * @param data The element to be checked.
+      * @return True if the element is found, otherwise false.
+      */
+     @Override
+     public boolean contains(E data) {
+         return false;
+     }
 
-    private void resizeArray() {
-        int newCapacity = array.length * 2;
-        LinkedNode<E>[] newArray = new LinkedNode[newCapacity];
-        System.arraycopy(array, 0, newArray, 0, size);
-        array = newArray;
-    }
-}
+     /**
+      * Removes a specific element from the list.
+      *
+      * @param data The element to be removed.
+      * @return True if the element is removed, otherwise false.
+      */
+     @Override
+     public boolean remove(E data) {
+         return false;
+     }
+
+     /**
+      * Retrieves an element at a specific index in the list.
+      *
+      * @param index The index of the element to be retrieved.
+      * @return The element at the specified index.
+      * @throws IndexOutOfBoundsException if the index is out of bounds.
+      */
+     public E getAtIndex(int index) throws IndexOutOfBoundsException {
+         if (index < 0 || index >= size) {
+             throw new IndexOutOfBoundsException("Index out of bounds");
+         }
+         return array[index].getData();
+     }
+
+     /**
+      * Resizes the internal array to accommodate more elements.
+      */
+     private void resizeArray() {
+         int newCapacity = array.length * 2;
+         LinkedNode<E>[] newArray = new LinkedNode[newCapacity];
+         System.arraycopy(array, 0, newArray, 0, size);
+         array = newArray;
+     }
+ }

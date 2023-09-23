@@ -126,7 +126,7 @@ public class DoublyLinkedList<T> implements MyList<T> {
     private LinkedNode<T> tail;
 
     /**
-     * Creates a new instance of prelim.prelim.LinkedList.LinkedList.DoublyLinkedList.
+     * Creates a new instance of prelim.LinkedList.DoublyLinkedList.
      */
     public DoublyLinkedList() {
         head = null;

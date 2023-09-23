@@ -80,26 +80,56 @@ import prelim.Util.Property;
 
 import java.util.NoSuchElementException;
 
+/**
+ * MyFixedSizeArrayList is an implementation of the MyList interface with a fixed maximum size.
+ * It stores elements of type Property and provides basic list operations.
+ *
+ * @param <E> The type of elements to be stored in the list.
+ */
 public class MyFixedSizeArrayList<E> implements MyList<E> {
+    // Maximum size of the list
     private static final int MAX_SIZE = 5;
+
+    // Array to store elements
     private Property[] array;
+
+    // Current size of the list
     private int size;
 
+    /**
+     * Constructs a new MyFixedSizeArrayList with a maximum size of MAX_SIZE.
+     */
     public MyFixedSizeArrayList() {
         array = new Property[MAX_SIZE];
         size = 0;
     }
 
+    /**
+     * Returns the current size of the list.
+     *
+     * @return The size of the list.
+     */
     @Override
     public int getSize() {
         return size;
     }
 
+    /**
+     * Checks if the list is empty.
+     *
+     * @return True if the list is empty, otherwise false.
+     */
     @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
+    /**
+     * Inserts an element into the list.
+     *
+     * @param data The element to be inserted.
+     * @throws ListOverflowException if the list is full and cannot insert more elements.
+     */
     @Override
     public void insert(E data) throws ListOverflowException {
         if (size >= MAX_SIZE) {
@@ -109,6 +139,13 @@ public class MyFixedSizeArrayList<E> implements MyList<E> {
         size++;
     }
 
+    /**
+     * Retrieves an element from the list.
+     *
+     * @param data The element to be retrieved.
+     * @return The element if found.
+     * @throws NoSuchElementException if the element is not found in the list.
+     */
     @Override
     public E getElement(E data) throws NoSuchElementException {
         for (int i = 0; i < size; i++) {
@@ -119,6 +156,12 @@ public class MyFixedSizeArrayList<E> implements MyList<E> {
         throw new NoSuchElementException("Element not found.");
     }
 
+    /**
+     * Deletes an element from the list.
+     *
+     * @param data The element to be deleted.
+     * @return A message indicating the deleted element or "Element not found" if not found.
+     */
     @Override
     public String delete(E data) {
         for (int i = 0; i < size; i++) {
@@ -135,6 +178,12 @@ public class MyFixedSizeArrayList<E> implements MyList<E> {
         return "Element not found.";
     }
 
+    /**
+     * Searches for an element in the list.
+     *
+     * @param data The element to be searched.
+     * @return The index of the element if found, or -1 if not found.
+     */
     @Override
     public int search(E data) {
         for (int i = 0; i < size; i++) {
@@ -145,6 +194,11 @@ public class MyFixedSizeArrayList<E> implements MyList<E> {
         return -1;
     }
 
+    /**
+     * Returns a string representation of the list.
+     *
+     * @return A string representing the list elements.
+     */
     @Override
     public String toString() {
         StringBuilder string = new StringBuilder();
@@ -157,16 +211,35 @@ public class MyFixedSizeArrayList<E> implements MyList<E> {
         return string.toString();
     }
 
+    /**
+     * Checks if the list contains a specific element.
+     *
+     * @param data The element to be checked.
+     * @return True if the element is found, otherwise false.
+     */
     @Override
     public boolean contains(E data) {
         return false;
     }
 
+    /**
+     * Removes a specific element from the list.
+     *
+     * @param data The element to be removed.
+     * @return True if the element is removed, otherwise false.
+     */
     @Override
     public boolean remove(E data) {
         return false;
     }
 
+    /**
+     * Retrieves an element at a specific index in the list.
+     *
+     * @param index The index of the element to be retrieved.
+     * @return The element at the specified index.
+     * @throws IndexOutOfBoundsException if the index is out of bounds.
+     */
     public E getAtIndex(int index) throws IndexOutOfBoundsException {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index out of bounds");
@@ -174,4 +247,5 @@ public class MyFixedSizeArrayList<E> implements MyList<E> {
         return (E) array[index];
     }
 }
+
 

@@ -44,13 +44,19 @@ package prelim.Util;
  *
  * End the class definition.
  */
+
+import java.util.Objects;
+
+/**
+ * The Property class represents a property with model, color, and status attributes.
+ */
 public class Property {
     private String model;
     private String color;
     private String status;
 
     /**
-     * Constructor to initialize a prelim.Util.Property object with details.
+     * Constructs a Property object with the provided property details.
      *
      * @param details A string containing property details in the format: model, color, status.
      * @throws IllegalArgumentException If the input format is invalid.
@@ -67,7 +73,35 @@ public class Property {
     }
 
     /**
-     * Returns a string representation of the prelim.Util.Property.
+     * Compares this Property object with another object for equality.
+     *
+     * @param o The object to compare with.
+     * @return true if the objects are equal, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Property property = (Property) o;
+        return model.equals(property.model) &&
+                color.equals(property.color) &&
+                status.equals(property.status);
+    }
+
+    /**
+     * Computes a hash code for this Property object.
+     *
+     * @return A hash code value.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, color, status);
+    }
+
+    /**
+     * Returns a string representation of the Property object.
+     *
+     * @return A string in the format: "Model: {model} Color: {color} Status: {status}".
      */
     @Override
     public String toString() {
@@ -75,7 +109,7 @@ public class Property {
     }
 
     /**
-     * Get the model of the property.
+     * Gets the model of the property.
      *
      * @return The model attribute.
      */
@@ -84,7 +118,7 @@ public class Property {
     }
 
     /**
-     * Get the color of the property.
+     * Gets the color of the property.
      *
      * @return The color attribute.
      */
@@ -93,7 +127,7 @@ public class Property {
     }
 
     /**
-     * Get the status of the property.
+     * Gets the status of the property.
      *
      * @return The status attribute.
      */
@@ -101,3 +135,5 @@ public class Property {
         return status;
     }
 }
+
+

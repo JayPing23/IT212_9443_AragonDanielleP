@@ -58,11 +58,19 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class Product {
+    // Instance Variables
     private int productId;
     private String productName;
     private int priceCents;
     private int quantity;
 
+    /**
+     * Constructor to create a Product object with specified attributes.
+     *
+     * @param productName The name of the product (string).
+     * @param priceCents The price of the product in cents (integer).
+     * @param productId The unique identifier of the product (integer).
+     */
     public Product(String productName, int priceCents, int productId) {
         this.productId = productId;
         this.productName = productName;
@@ -70,26 +78,56 @@ public class Product {
         this.quantity = 0; // Initialize quantity to 0
     }
 
+    /**
+     * Getter method to retrieve the product's unique identifier.
+     *
+     * @return The product's unique identifier (integer).
+     */
     public int getProductId() {
         return productId;
     }
 
+    /**
+     * Getter method to retrieve the product's name.
+     *
+     * @return The product's name (string).
+     */
     public String getProductName() {
         return productName;
     }
 
+    /**
+     * Getter method to retrieve the product's price in cents.
+     *
+     * @return The product's price in cents (integer).
+     */
     public int getPriceCents() {
         return priceCents;
     }
 
+    /**
+     * Getter method to retrieve the quantity of the product.
+     *
+     * @return The quantity of the product (integer).
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * Setter method to set the quantity of the product.
+     *
+     * @param quantity The new quantity of the product (integer).
+     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
+    /**
+     * Generates a string representation of the Product object.
+     *
+     * @return A string representing the product information.
+     */
     @Override
     public String toString() {
         return "Product ID: " + productId +
@@ -98,6 +136,12 @@ public class Product {
                 "\n----------";
     }
 
+    /**
+     * Private helper method to format the price in cents as a currency string.
+     *
+     * @param priceCents The price of the product in cents (integer).
+     * @return A string representing the formatted currency.
+     */
     private String formatCurrency(int priceCents) {
         // Format priceCents as a currency string (e.g., "$10.99")
         double priceInDollars = priceCents / 100.0;

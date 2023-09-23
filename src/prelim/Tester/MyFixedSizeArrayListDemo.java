@@ -5,10 +5,8 @@
   *
   * Algorithm: MyFixedSizeArrayListDemo
   * Initialization
-  *
   * Create a class named MyFixedSizeArrayListDemo.
   * Main Method
-  *
   * Define a main method inside the MyFixedSizeArrayListDemo class with the following steps:
   * Create a Scanner object named scanner to read user input.
   * Declare a variable propertyList of type MyList<Property> and initialize it with a new instance of MyFixedSizeArrayList.
@@ -46,80 +44,104 @@
   *
  */
  package prelim.Tester;
-
+ import prelim.Util.Property;
  import prelim.Util.ListOverflowException;
  import prelim.Util.MyList;
- import prelim.Util.Property;
  import prelim.ArrayList.MyFixedSizeArrayList;
 
+ import java.util.InputMismatchException;
  import java.util.NoSuchElementException;
  import java.util.Scanner;
 
-/**
- * This class demonstrates the use of a fixed-size ArrayList for managing properties.
- */
-public class MyFixedSizeArrayListDemo {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        MyList<Property> propertyList = new MyFixedSizeArrayList<>();
+ public class MyFixedSizeArrayListDemo {
+     public static void main(String[] args) {
+         Scanner scanner = new Scanner(System.in);
+         MyList<Property> propertyList = new MyFixedSizeArrayList<>();
 
-        int choice = 0;
-        do {
-            try {
-                // Display the prelim.Util.Property Management Menu
-                System.out.println("\nprelim.Util.Property Management Menu:");
-                System.out.println("1. Add prelim.Util.Property");
-                System.out.println("2. View prelim.Util.Property List");
-                System.out.println("3. Exit");
-                System.out.print("Enter your choice: ");
+         int choice = 0;
+         do {
+             try {
+                 // Display the Property Management Menu
+                 System.out.println("\nProperty Management Menu:");
+                 System.out.println("1. Add Property");
+                 System.out.println("2. View Property List");
+                 System.out.println("3. Delete Property");
+                 System.out.println("4. Exit");
+                 System.out.print("Enter your choice: ");
 
-                // Read user choice
-                choice = scanner.nextInt();
-                scanner.nextLine(); // Consume the newline character
+                 try {
+                     // Read user choice
+                     choice = scanner.nextInt();
+                     scanner.nextLine(); // Consume the newline character
+                 } catch (InputMismatchException e) {
+                     System.out.println("Invalid input. Please enter a valid number.");
+                     scanner.nextLine(); // Consume the invalid input
+                     continue; // Skip the rest of the loop and start over
+                 }
 
-                switch (choice) {
-                    case 1:
-                        // Read property details from the user and add to the list
-                        Property property = readPropertyDetails(scanner);
-                        propertyList.insert(property);
-                        System.out.println("prelim.Util.Property added.");
-                        break;
+                 switch (choice) {
+                     case 1:
+                         // Read property details from the user and add to the list
+                         Property property = readPropertyDetails(scanner);
+                         propertyList.insert(property);
+                         System.out.println("Property added.");
+                         break;
 
-                    case 2:
-                        // Display the list of properties
-                        System.out.println("prelim.Util.Property List:");
-                        System.out.println(propertyList.toString());
-                        break;
+                     case 2:
+                         // Display the list of properties
+                         System.out.println("Property List:");
+                         System.out.println(propertyList.toString());
+                         break;
 
-                    case 3:
-                        System.out.println("Exiting the prelim.Util.Property Management App.");
-                        break;
+                     case 3:
+                         // Delete a property
+                         System.out.print("Enter the property details to delete (e.g., model, color, status): ");
+                         String propertyToDelete = scanner.nextLine();
+                         boolean propertyDeleted = false;
+                         try {
+                             String deletedProperty = propertyList.delete(new Property(propertyToDelete));
+                             if (deletedProperty != null) {
+                                 System.out.println("Property '" + deletedProperty + "' deleted.");
+                                 propertyDeleted = true;
+                             }
+                         } catch (NoSuchElementException e) {
+                             // Property not found
+                         }
+                         if (!propertyDeleted) {
+                             System.out.println("Property not found for deletion.");
+                         }
+                         break;
 
-                    default:
-                        System.out.println("Invalid choice. Please try again.");
-                        break;
-                }
-            } catch (ListOverflowException e) {
-                System.out.println("Error: " + e.getMessage());
-            } catch (NoSuchElementException e) {
-                System.out.println("Error: " + e.getMessage());
-            } catch (Exception e) {
-                System.out.println("An unexpected error occurred: " + e.getMessage());
-            }
-        } while (choice != 3);
+                     case 4:
+                         System.out.println("Exiting the Property Management App.");
+                         break;
 
-        scanner.close();
-    }
+                     default:
+                         System.out.println("Invalid choice. Please try again.");
+                         break;
+                 }
+             } catch (ListOverflowException e) {
+                 System.out.println("Error: " + e.getMessage());
+             } catch (Exception e) {
+                 System.out.println("An unexpected error occurred: " + e.getMessage());
+             }
+         } while (choice != 4);
 
-    /**
-     * Reads property details from the user's input.
-     *
-     * @param scanner The Scanner object used for input.
-     * @return A prelim.Util.Property object created from the input details.
-     */
-    private static Property readPropertyDetails(Scanner scanner) {
-        System.out.print("Enter property details (e.g., model, color, status): ");
-        String propertyDetails = scanner.nextLine();
-        return new Property(propertyDetails);
-    }
-}
+         scanner.close();
+     }
+
+     /**
+      * Reads property details from the user's input.
+      *
+      * @param scanner The Scanner object used for input.
+      * @return A Property object created from the input details.
+      */
+     private static Property readPropertyDetails(Scanner scanner) {
+         System.out.print("Enter property details (e.g., model, color, status): ");
+         String propertyDetails = scanner.nextLine();
+         return new Property(propertyDetails);
+     }
+ }
+
+
+

@@ -61,6 +61,7 @@ package prelim.Tester;
 import prelim.Util.ListOverflowException;
 import prelim.Util.MyList;
 import prelim.LinkedList.*;
+import java.util.InputMismatchException; // Import InputMismatchException
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -72,7 +73,7 @@ public class ListMenu {
         Scanner scanner = new Scanner(System.in);
         MyList<String> list = null;
 
-        int listChoice;
+        int listChoice = 0;
         do {
             // Display the list type selection menu
             System.out.println("\nSelect a List Type:");
@@ -84,41 +85,46 @@ public class ListMenu {
             System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
 
-            listChoice = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character
+            try {
+                listChoice = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character
 
-            switch (listChoice) {
-                case 1:
-                    list = new LinkedList<>();
-                    break;
+                switch (listChoice) {
+                    case 1:
+                        list = new LinkedList<>();
+                        break;
 
-                case 2:
-                    list = new SinglyLinkedList<>();
-                    break;
+                    case 2:
+                        list = new SinglyLinkedList<>();
+                        break;
 
-                case 3:
-                    list = new DoublyLinkedList<>();
-                    break;
+                    case 3:
+                        list = new DoublyLinkedList<>();
+                        break;
 
-                case 4:
-                    list = new SinglyLinkedCircularList<>();
-                    break;
+                    case 4:
+                        list = new SinglyLinkedCircularList<>();
+                        break;
 
-                case 5:
-                    list = new DoublyLinkedCircularList<>();
-                    break;
+                    case 5:
+                        list = new DoublyLinkedCircularList<>();
+                        break;
 
-                case 6:
-                    System.out.println("Exiting the program.");
-                    break;
+                    case 6:
+                        System.out.println("Exiting the program.");
+                        break;
 
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-                    break;
-            }
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                        break;
+                }
 
-            if (list != null) {
-                operateOnList(scanner, list);
+                if (list != null) {
+                    operateOnList(scanner, list);
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scanner.nextLine(); // Consume the invalid input
             }
 
         } while (listChoice != 6); // Exit the program when the user chooses option 6

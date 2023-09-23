@@ -35,12 +35,114 @@
  * 6. Error handling is implemented for user input, ensuring that the user provides valid choices and input
  *    for product selection and quantity.
  * 7. The Utils class is used for formatting currency values.
+ * =====================================================================================================================
+ * Sample Execution:
+ 1. Add Item to cart
+ 2. Show Cart (Empty Cart)
+ 3. Exit Application
+ >> 1
+
+ Product Lists
+
+ Product ID: 20
+ Product Name: Markers
+ Price: $2.99
+ ----------
+ Product ID: 19
+ Product Name: Whiteboard
+ Price: $8.99
+ ----------
+ Product ID: 18
+ Product Name: Stapler
+ Price: $3.99
+ ----------
+ Product ID: 17
+ Product Name: Notebook Paper
+ Price: $1.49
+ ----------
+ Product ID: 16
+ Product Name: Colored Pencils
+ Price: $3.49
+ ----------
+ Product ID: 15
+ Product Name: Geometry Set
+ Price: $4.99
+ ----------
+ Product ID: 14
+ Product Name: Protractor
+ Price: $1.99
+ ----------
+ Product ID: 13
+ Product Name: Water Bottle
+ Price: $2.99
+ ----------
+ Product ID: 12
+ Product Name: Lunchbox
+ Price: $7.99
+ ----------
+ Product ID: 11
+ Product Name: Glue Stick
+ Price: $0.79
+ ----------
+ Product ID: 10
+ Product Name: Scissors
+ Price: $2.49
+ ----------
+ Product ID: 9
+ Product Name: Calculator
+ Price: $5.99
+ ----------
+ Product ID: 8
+ Product Name: Crayons
+ Price: $1.99
+ ----------
+ Product ID: 7
+ Product Name: Markers
+ Price: $3.99
+ ----------
+ Product ID: 6
+ Product Name: Ruler
+ Price: $1.49
+ ----------
+ Product ID: 5
+ Product Name: Backpack
+ Price: $24.99
+ ----------
+ Product ID: 4
+ Product Name: Eraser
+ Price: $0.49
+ ----------
+ Product ID: 3
+ Product Name: Highlighter
+ Price: $0.99
+ ----------
+ Product ID: 2
+ Product Name: Pencil Set
+ Price: $2.99
+ ----------
+ Product ID: 1
+ Product Name: Notebook
+ Price: $1.99
+ ----------
+ Item ID: 2
+ Quantity (from 1-10 only): 5
+
+
+ Pencil Set is added successfully to your cart!
+
+
+ 1. Add Item to cart
+ 2. Show Cart (1)
+ 3. Delete an Item on Cart
+ 4. Exit Application
+ >>
+ * =====================================================================================================================
+ *
  * @author: Aragon, Danielle John P.
  * Date: September 22, 2023
  * 9443-IT212/IT212L-SAMCIS-CIS
  */
 package prelim.Tester;
-
 
 import prelim.LinkedList.DoublyLinkedCircularList;
 import prelim.Util.ListOverflowException;
